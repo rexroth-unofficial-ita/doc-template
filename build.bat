@@ -1,31 +1,24 @@
 @echo off 
+:: Ver 1.0
 
-:: Fetch folder used to build documentation
-xcopy /s /i /Y  "../GIT/build_tools" "build_tools"
+:: Fetch data that will be used to build documentation
+git clone https://github.com/rexroth-unofficial-ita/doc-build.git
 
-:: Delete README if exists 
+:: Delete old README if exists 
 IF EXIST README.md DEL /F README.md 
 
 :: Create new README
 copy ?-*.md README.md
 
-:: Add dependency for webpage to assets folder
+:: Add dependency for ( js and css ) for html to work
 mkdir assets
-xcopy /s /i /Y  "../GIT/build_tools/assets" "assets"
-
+xcopy /s /i /Y  "doc-build/assets" "assets"
 
 :: Build documentation without pandoc pre-installed
-cd build_tools/pandoc
-pandoc.exe ../../README.md  --template ../../build_tools/template/template.html --toc -B ../../build_tools/template/nav.html --metadata-file ../../APPLICATION-DATA.yalm -o ../../GUIDA.html
+cd doc-build/pandoc
+powershell Expand-Archive -LiteralPath "pandoc.zip" -DestinationPath "../pandoc" -Force
+pandoc.exe ../../README.md  --template ../../doc-build/template/template.html --toc -B ../../doc-build/template/nav.html --metadata-file ../../APPLICATION-DATA.yalm -o ../../GUIDA.html
 cd ../../
- 
-:: Build documentation with pandoc pre-installed
-:: pandoc README.md  --template build_tools/template/template.html --toc -B build_tools/template/nav.html --metadata-file metadata.yalm -o index.html
-
-
-:: Remove files used for building
-rd /s /q build_tools
-
 
 :: This part will move README.md to parent folder after having corrected images path.
 setlocal enableextensions disabledelayedexpansion
@@ -36,7 +29,14 @@ for /f "delims=" %%i in ('type "README.md" ^& break ^> "README.md" ') do (
     >>"../README.md" echo(!line:assets=%parent%/assets!
     endlocal
 )
+		
+:: Remove files used for building
 del /F README.md
-	
-	
+rd /s /q doc-build
+rd /s /q .git
+dir
+
+:: Archive md files and delete them
+powershell Compress-Archive "*.md" -DestinationPath "backup.zip"
+del *.md
 
