@@ -7,19 +7,20 @@
 ### Prerequisiti
 Questa guida è basata sull' utilizzo del dispositivo mediante l'applicativo 
 [MobaXterm](https://mobaxterm.mobatek.net/). 
+[MobaXterm](https://mobaxterm.mobatek.net/). 
 
 ### Utilizzo Mobaxterm
 Aprire Mobaxterm, Aprire una nuova sessione e inserire l'ip de dispositivo e *boschrexroth* come username. Verrà richesta una password, la password di default è
 *boschrexroth*.
 
 <div class="text-center">
-<img src="./res/installMedia/PR21/install1.png" class="rounded mx-auto d-block">
+<img src="assets/install1.png" class="rounded mx-auto d-block">
 </div>
 
 Sulla sinistra il programma mostra un *"file explorer"* nel quale possiamo trascinare la nostra app con estensione *"_amd64.snap"* per inserirla nella memoria interna. 
 
 <div class="text-center">
-<img src="./res/installMedia/PR21/install2.png" class="rounded mx-auto d-block">
+<img src="assets/install2.png" class="rounded mx-auto d-block">
 </div>
 
 ### Installazione / Comandi
@@ -49,7 +50,7 @@ Esempio di installazione & ottenimento informazioni di base:
 
 
 <div class="text-center">
-<img src="./res/installMedia/PR21/install3.png" class="rounded mx-auto d-block">
+<img src="assets/install3.png" class="rounded mx-auto d-block">
 </div>
 
 
