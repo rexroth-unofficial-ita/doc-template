@@ -1,6 +1,3 @@
-
-
-
 ## Installazione su App PR21
 
 

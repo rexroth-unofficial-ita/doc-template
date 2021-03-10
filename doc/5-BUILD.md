@@ -1,5 +1,3 @@
-
-
 ## Creare la snap
 Per poter creare l'applicazione è necessario compilare un file .snap in grado di essere installato su un CtrlX, PR21 o CtrlX virtual device.
 

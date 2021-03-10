@@ -1,4 +1,3 @@
-
 # CPU Monitoring
 
 ## Descrizione Appllicazione 

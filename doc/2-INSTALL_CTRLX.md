@@ -1,5 +1,3 @@
-
-
 ## Installazione App su Ctrl-X
 
 ### Workflow 
