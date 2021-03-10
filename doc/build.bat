@@ -1,5 +1,5 @@
 :: Documentation Builder Ver 1.0
-@echo off 
+@echo off  
 
 echo ----------------------------------------------------------------------------------------------
 echo DOCUMENTATION BUILDER V1.0
@@ -37,9 +37,11 @@ echo archive markdown source to build.zip after building : %create_zip%
 SET /P DOYOUWANT=Continue with this settings ([Y]/N)?
 IF /I "%DOYOUWANT%" NEQ "Y" ( exit )  
 echo ----------------------------------------------------------------------------------------------
-echo Fetch data that will be used for building
-:: Fetch data that will be used to build documentation
-git clone https://github.com/rexroth-unofficial-ita/doc-build.git
+echo Fetch data that will be used for building if not present locally
+:: Fetch data that will be used to build documentation if not available locally 
+IF EXIST ../../doc-build  ECHO Data are available locally - no need to git clone  
+IF EXIST ../../doc-build  xcopy /s /i /Y  "../../doc-build" "doc-build"
+IF NOT EXIST ../../doc-build git clone https://github.com/rexroth-unofficial-ita/doc-build.git
 echo ----------------------------------------------------------------------------------------------
 echo delete old README.md if exists
 :: Delete old README if exists 
