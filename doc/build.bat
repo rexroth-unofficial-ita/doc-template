@@ -13,29 +13,29 @@ for %%a in ("%~dp0\.") do set "parent=%%~nxa"
 set move_readme=false
 set create_zip=false
 
-SET /P DOYOUWANT=Move README.md and LICENCE to parent folder ([Y]/N)?
-IF /I "%DOYOUWANT%" EQU "N" GOTO END
+SET /P DOYOUWANT1=Move README.md and LICENSE.md to parent folder ([Y]/N)?
+IF /I "%DOYOUWANT1%" EQU "N" GOTO END
 	set move_readme=true
 	echo ----------------------------------------------------------------------------------------------
 
-	echo Actual parent folder name is %parent% 
+	echo Actual parent folder name is: %parent% 
 	echo This will be used to address resources from inner folders.
-	echo To prevent broken links consider to change it before building documentation
+	echo To prevent broken links consider to change it before building documentation.
 	echo ----------------------------------------------------------------------------------------------
-	SET /P DOYOUWANT=Press N to exit Y to continue(Y/[N])?
-	IF /I "%DOYOUWANT%" NEQ "Y" ( exit )  
+	SET /P DOYOUWANT2=Press N to exit Y to continue(Y/[N])?
+	IF /I "%DOYOUWANT2%" NEQ "Y" ( exit )  
 :END
 echo ----------------------------------------------------------------------------------------------
 echo Markdown source files can be zipped to build.zip after the building process has finished.
-SET /P AREYOUSURE=Archive markdown files after building (Y/[N])?
-IF /I "%AREYOUSURE%" EQU "Y" (set create_zip=true)
+SET /P DOYOUWANT3=Archive markdown files after building (Y/[N])?
+IF /I "%ADOYOUWANT3%" EQU "Y" (set create_zip=true)
 echo ----------------------------------------------------------------------------------------------
 echo THE FOLLOWING OPTIONS ARE SELECTED :
-echo building folder : %parent%
-echo move readme to parent directory : %move_readme%
-echo archive markdown source to build.zip after building : %create_zip%
-SET /P DOYOUWANT=Continue with this settings ([Y]/N)?
-IF /I "%DOYOUWANT%" NEQ "Y" ( exit )  
+echo building folder: %parent%
+echo move readme to parent directory: %move_readme%
+echo archive markdown source to build.zip after building: %create_zip%
+SET /P DOYOUWANT4=Continue with this settings ([Y]/N)?
+IF /I "%DOYOUWANT4%" NEQ "Y" ( exit )  
 echo ----------------------------------------------------------------------------------------------
 echo Fetch data that will be used for building if not present locally
 :: Fetch data that will be used to build documentation if not available locally 
@@ -76,7 +76,7 @@ IF /I "%move_readme%" NEQ "true" goto END
 		>>"../README.md" echo(!line:assets/=%parent%/assets/!
 		endlocal
 	)
-	copy /Y  "LICENSE.md" "../LICENSE.txt"
+	copy /Y  "LICENSE.md" "../LICENSE.md"
 	del /F README.md
 	::del /F LICENSE.md
 	

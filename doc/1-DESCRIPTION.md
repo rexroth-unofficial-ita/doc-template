@@ -1,9 +1,9 @@
-# CPU Monitoring
+# My Application
 
-## Descrizione Appllicazione 
+## Descrizione Applicazione 
 
-Questa app fornisce dati riguardo all' Hardware del dispositivo su cui è installata e l'utilizzo istantaneo di CPU e RAM dello stesso.
+Questa app fa alcune cose che saranno utili a qualcuno.
 
 <div class="text-center">
-<img src="assets/description1.png" class="rounded mx-auto d-block">
+<img src="assets/description1.jpg" class="rounded mx-auto d-block">
 </div>

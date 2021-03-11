@@ -1,5 +1,5 @@
 ## Creare la snap
-Per poter creare l'applicazione è necessario compilare un file .snap in grado di essere installato su un CtrlX, PR21 o CtrlX virtual device.
+Per poter creare l'applicazione è necessario compilare un file .snap in grado di essere installato su un ctrlX, PR21 o ctrlX virtual device.
 
 ### AMD64
 setup environment:
